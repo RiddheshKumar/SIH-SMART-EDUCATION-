@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sign Up — Raasta</title>
+<link rel="stylesheet" href="css/base.css" />
+<link rel="stylesheet" href="css/auth.css" />
+</head>
+<body>
+
+<main>
+  <section class="auth-page">
+    <div class="auth-card">
+
+      <div class="auth-brand">
+        <div class="brand-mark">R</div>
+        <span class="auth-brand-name">Raasta</span>
+      </div>
+
+      <div class="auth-heading">
+        <h1 data-i18n="auth.titleSignup">Apna account banao</h1>
+      </div>
+      <p class="auth-sub" data-i18n="auth.subSignup">Course, goal aur skills — sab yahan se shuru hota hai.</p>
+
+      <div class="auth-alert" id="auth-alert" role="alert" aria-live="polite"></div>
+
+      <form class="auth-form" id="signup-form" novalidate>
+
+        <div class="auth-field">
+          <label for="name"><span data-i18n="auth.nameLabel">Full Name</span> <span class="req">*</span></label>
+          <input class="auth-input" id="name" type="text" data-i18n-placeholder="auth.namePh" placeholder="e.g. Rahul Kumar" autocomplete="name" />
+          <span class="field-error" id="name-error"></span>
+        </div>
+
+        <div class="auth-field">
+          <label for="email"><span data-i18n="auth.emailLabel">Email</span> <span class="req">*</span></label>
+          <input class="auth-input" id="email" type="email" data-i18n-placeholder="auth.emailPh" placeholder="tumhara@email.com" autocomplete="email" />
+          <span class="field-error" id="email-error"></span>
+        </div>
+
+        <div class="auth-field">
+          <label for="password"><span data-i18n="auth.passLabel">Password</span> <span class="req">*</span></label>
+          <div class="password-wrap">
+            <input class="auth-input" id="password" type="password" data-i18n-placeholder="auth.passPhSignup" placeholder="kam se kam 6 characters" autocomplete="new-password" />
+            <button type="button" class="toggle-pass" data-target="password" aria-label="Show password"></button>
+          </div>
+          <div class="strength" id="strength-meter">
+            <div class="strength-bars">
+              <span class="strength-bar"></span><span class="strength-bar"></span>
+              <span class="strength-bar"></span><span class="strength-bar"></span>
+            </div>
+            <div class="strength-text" id="strength-text">Strength: —</div>
+          </div>
+          <span class="field-error" id="password-error"></span>
+        </div>
+
+        <div class="auth-field">
+          <label for="confirm"><span data-i18n="auth.confirmLabel">Confirm Password</span> <span class="req">*</span></label>
+          <div class="password-wrap">
+            <input class="auth-input" id="confirm" type="password" data-i18n-placeholder="auth.confirmPh" placeholder="dobara likho" autocomplete="new-password" />
+            <button type="button" class="toggle-pass" data-target="confirm" aria-label="Show password"></button>
+          </div>
+          <span class="field-error" id="confirm-error"></span>
+        </div>
+
+        <button type="submit" class="auth-submit" data-i18n="auth.signupBtn">Create Account</button>
+      </form>
+
+      <p class="auth-switch"><span data-i18n="auth.switchSignupPre">Account hai pehle se?</span> <a href="login.html"><span data-i18n="auth.switchSignupLink">Log in karo</span></a></p>
+      <p class="auth-back"><a href="index.html" data-i18n="auth.back">&larr; Home pe wapas</a></p>
+
+      <div class="auth-demo" data-i18n="auth.demoSignup">
+        Note: accounts sirf is browser ke localStorage mein save hote hain. Real app ke liye
+        backend se connect karna hoga.
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<script src="js/data.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>

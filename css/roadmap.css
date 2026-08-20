@@ -1,0 +1,70 @@
+/* ============================================================
+   Raasta — Roadmap page (node timeline)
+   ============================================================ */
+
+.timeline { position: relative; padding-left: 44px; max-width: 720px; }
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 15px;
+  top: 10px;
+  bottom: 10px;
+  width: 3px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--violet), var(--cyan));
+}
+.timeline-node { position: relative; margin-bottom: 24px; }
+.timeline-node::before {
+  content: "";
+  position: absolute;
+  left: -37px;
+  top: 24px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #3a3f5c;
+  border: 3px solid var(--bg);
+  z-index: 1;
+}
+.timeline-node.done::before {
+  background: var(--violet);
+  box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.25);
+}
+.timeline-node.goal::before {
+  background: var(--cyan);
+  box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.25), 0 0 18px var(--cyan);
+}
+.node-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 20px 24px;
+  transition: transform 0.3s var(--ease), border-color 0.3s ease;
+}
+.node-card:hover { transform: translateY(-3px); border-color: rgba(34, 211, 238, 0.4); }
+.node-stage {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.node-stage.done { color: var(--violet); }
+.node-stage.goal { color: var(--cyan); }
+.node-stage.mid { color: var(--muted); }
+.node-title { font-size: 1.08rem; margin-bottom: 6px; }
+.node-desc { color: var(--muted); font-size: 0.9rem; }
+.node-duration {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--cyan);
+  background: rgba(34, 211, 238, 0.12);
+  border: 1px solid rgba(34, 211, 238, 0.3);
+  padding: 3px 12px;
+  border-radius: 999px;
+}

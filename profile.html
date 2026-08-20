@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Profile — Raasta</title>
+<link rel="stylesheet" href="css/base.css" />
+<link rel="stylesheet" href="css/profile.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <div class="header-left">
+      <div class="brand-mark">R</div>
+      <span class="brand-name">Raasta</span>
+    </div>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="profile.html" data-i18n="nav.profile">Profile</a>
+      <a href="dashboard.html" data-i18n="nav.analysis">Analysis</a>
+      <a href="roadmap.html" data-i18n="nav.roadmap">Roadmap</a>
+      <a href="execution.html" data-i18n="nav.resources">Resources</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="page" id="profile" aria-labelledby="profile-title">
+    <div class="container">
+
+      <div class="section-header">
+        <span class="section-kicker" data-i18n="prof.kicker">Profile Dashboard</span>
+        <h2 id="profile-title"><span data-i18n="prof.title1">Apni profile </span><span class="grad-text" style="background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;" data-i18n="prof.title2">banao</span></h2>
+        <p data-i18n="prof.sub">Course, goal aur skills bharo — right side pe live preview dikhega. Analysis isi se fit hoga.</p>
+      </div>
+
+      <div class="profile-grid">
+
+        <!-- Form -->
+        <div class="card form-card">
+          <form id="profile-form" novalidate>
+
+            <div class="form-section">
+              <label class="form-label" for="course-select"><span data-i18n="prof.courseLabel">1 · Course</span> <span class="req">*</span></label>
+              <div class="select-wrap">
+                <select class="form-select" id="course-select"></select>
+              </div>
+              <div class="other-course" id="other-course">
+                <input class="form-input" id="course-other" type="text" data-i18n-placeholder="prof.courseOtherPh" placeholder="Apna course likho… e.g. B.Pharm (Ayurveda)" />
+              </div>
+            </div>
+
+            <div class="form-section">
+              <label class="form-label" for="goal-input"><span data-i18n="prof.goalLabel">2 · Goal</span> <span class="req">*</span></label>
+              <input class="form-input" id="goal-input" type="text" autocomplete="off" data-i18n-placeholder="prof.goalPh"
+                     placeholder="e.g. data analyst banna hai, ya pharmacy ke baad M.Pharm + MBA" />
+            </div>
+
+            <div class="form-section">
+              <label class="form-label"><span data-i18n="prof.skillsLabel">3 · Skills</span> <small data-i18n="prof.skillsHint">(2 levels mein batao)</small></label>
+
+              <div class="skill-panel">
+                <div class="skill-panel-header">
+                  <div class="skill-panel-title"><span class="level-dot good"></span> <span data-i18n="prof.goodPanel">Good level — aata hai</span></div>
+                  <span class="skill-count" id="skill-count-good">0 skills</span>
+                </div>
+                <div class="skill-add-row">
+                  <input class="form-input" id="skill-input-good" type="text" data-i18n-placeholder="prof.goodPh" placeholder="e.g. Excel, Tally, Accounting…" autocomplete="off" />
+                  <button type="button" class="skill-add-btn" id="skill-add-good" data-i18n="prof.addBtn">Add</button>
+                </div>
+                <div class="skill-chips" id="good-chips"></div>
+              </div>
+
+              <div class="skill-panel">
+                <div class="skill-panel-header">
+                  <div class="skill-panel-title"><span class="level-dot basic"></span> <span data-i18n="prof.basicPanel">Basic level — seekh rahe ho</span></div>
+                  <span class="skill-count" id="skill-count-basic">0 skills</span>
+                </div>
+                <div class="skill-add-row">
+                  <input class="form-input" id="skill-input-basic" type="text" data-i18n-placeholder="prof.basicPh" placeholder="e.g. Python, SQL, Communication…" autocomplete="off" />
+                  <button type="button" class="skill-add-btn" id="skill-add-basic" data-i18n="prof.addBtn">Add</button>
+                </div>
+                <div class="skill-chips" id="basic-chips"></div>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="button" class="btn-save" id="save-profile" data-i18n="prof.saveBtn">Save Profile</button>
+              <span class="save-status" id="save-status" style="opacity:0;transition:opacity .4s ease;">Profile saved ✓</span>
+            </div>
+
+          </form>
+        </div>
+
+        <!-- Live preview -->
+        <aside class="preview-card" aria-label="Profile snapshot">
+          <div class="preview-label" data-i18n="prof.previewLabel">Profile Snapshot</div>
+
+          <div class="preview-block">
+            <h4 data-i18n="prof.pvCourse">Course</h4>
+            <div class="preview-value" id="pv-course">—</div>
+          </div>
+          <div class="preview-block">
+            <h4 data-i18n="prof.pvGoal">Goal</h4>
+            <div class="preview-value" id="pv-goal">Abhi nahi bataya</div>
+          </div>
+
+          <hr class="preview-divider" />
+
+          <div class="preview-block">
+            <h4 data-i18n="prof.pvGood">Good-level skills</h4>
+            <div class="preview-skills" id="pv-good"></div>
+          </div>
+          <div class="preview-block">
+            <h4 data-i18n="prof.pvBasic">Basic-level skills</h4>
+            <div class="preview-skills" id="pv-basic"></div>
+          </div>
+
+          <hr class="preview-divider" />
+
+          <div class="preview-stats">
+            <div class="stat-tile"><strong id="stat-total">0</strong><span data-i18n="prof.pvTotal">Total skills</span></div>
+            <div class="stat-tile"><strong id="stat-good">0</strong><span data-i18n="prof.pvGoodStat">Good level</span></div>
+            <div class="stat-tile"><strong id="stat-basic">0</strong><span data-i18n="prof.pvBasicStat">Basic level</span></div>
+          </div>
+
+          <a class="preview-cta" href="dashboard.html"><span data-i18n="prof.pvCta">Is profile ka analysis dekho</span> &rarr;</a>
+        </aside>
+
+      </div>
+
+      <nav class="page-nav" aria-label="Page navigation">
+        <a class="prev" href="index.html">&larr; <span data-i18n="nav.prev.profile">Home</span></a>
+        <a class="next" href="dashboard.html"><span data-i18n="nav.next.profile">Analysis</span> &rarr;</a>
+      </nav>
+
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container"><span data-i18n="footer.text">Raasta · built with care for Bharat ke learners</span> · <span id="footer-goal"></span></div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/app.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/profile.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Analysis — Raasta</title>
+<link rel="stylesheet" href="css/base.css" />
+<link rel="stylesheet" href="css/dashboard.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <div class="header-left">
+      <div class="brand-mark">R</div>
+      <span class="brand-name">Raasta</span>
+    </div>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="profile.html" data-i18n="nav.profile">Profile</a>
+      <a href="dashboard.html" data-i18n="nav.analysis">Analysis</a>
+      <a href="roadmap.html" data-i18n="nav.roadmap">Roadmap</a>
+      <a href="execution.html" data-i18n="nav.resources">Resources</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="page" id="dashboard" aria-labelledby="dashboard-title">
+    <div class="container">
+
+      <div class="section-header">
+        <span class="course-chip" id="course-chip"></span>
+        <span class="section-kicker" data-i18n="dash.kicker">Analysis</span>
+        <h2 id="dashboard-title"><span data-i18n="dash.title1">Tumhara </span><span class="grad-text" style="background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;">fit</span><span data-i18n="dash.title3"> check</span></h2>
+        <p data-i18n="dash.sub">Humne tumhari profile ko 20+ career tracks se compare kiya — yeh top 3 rahe, score ke hisaab se.</p>
+      </div>
+      <div class="career-grid" id="career-grid"></div>
+
+      <div class="section-header" style="margin-top:56px;">
+        <span class="section-kicker" data-i18n="dash.skillKicker">Skill Gap</span>
+        <h2 id="skills-title" data-i18n="dash.skillsTitle">Kya karna hai</h2>
+        <p data-i18n="dash.skillsSub">Tumhare paas jo hai aur jo chahiye — beech ka gap samjho.</p>
+      </div>
+      <div class="skill-widget" id="skill-widget"></div>
+      <div class="skill-summary" id="skill-summary"></div>
+
+      <nav class="page-nav" aria-label="Page navigation">
+        <a class="prev" href="index.html">&larr; <span data-i18n="nav.prev.home">Wapas: Goal</span></a>
+        <a class="next" href="roadmap.html"><span data-i18n="nav.next.dash">Roadmap dekho</span> &rarr;</a>
+      </nav>
+
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container"><span data-i18n="footer.text">Raasta · built with care for Bharat ke learners</span> · <span id="footer-goal"></span></div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/app.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>
